@@ -25,7 +25,7 @@ const Pizzas_provider = ({ children}) => {
              console.error({message:error})
          }
      }
-     
+
 
     useEffect(() =>{
         Pizzas_data();

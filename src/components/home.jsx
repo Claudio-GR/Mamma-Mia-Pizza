@@ -5,7 +5,7 @@ const Home = () => {
     const {Pizzas, SetPizzas, Total_cart, SetTotal_cart} = useContext(Pizzas_context)
 
     const Total_Calculator= () =>{
-        const Cart_Calculator = Pizzas.map(pizza => pizza.Total); 
+    const Cart_Calculator = Pizzas.map(pizza => pizza.Total); 
        console.log('Cart Calculator: ', Cart_Calculator)
    
        SetTotal_cart(Cart_Calculator.reduce((a, b) => a+b, 0))    
