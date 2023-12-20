@@ -1,16 +1,11 @@
 import { useContext } from "react";
 import { Pizzas_context } from "../context/pizza-menu";
+import { Cart_total } from "../context/cart";
 
 const Home = () => {
-    const {Pizzas, SetPizzas, Total_cart, SetTotal_cart} = useContext(Pizzas_context)
-
-    const Total_Calculator= () =>{
-    const Cart_Calculator = Pizzas.map(pizza => pizza.Total); 
-       console.log('Cart Calculator: ', Cart_Calculator)
-   
-       SetTotal_cart(Cart_Calculator.reduce((a, b) => a+b, 0))    
-       console.log('Total Cart: ', Total_cart)
-    }
+    const {Pizzas, SetPizzas} = useContext(Pizzas_context)
+    const {Total_cart, SetTotal_cart} = useContext(Cart_total)
+    
     
     const Add_qty = (id) => {
         console.log('Pizzas befor change', Pizzas)    
@@ -25,7 +20,6 @@ const Home = () => {
           );
           SetPizzas(newQtys);
           console.log('Pizzas after change', Pizzas)    
-          Total_Calculator();
     }
     const Sus_qty = (id) => {
         console.log('Pizzas befor change', Pizzas)    
@@ -40,7 +34,6 @@ const Home = () => {
           );
           SetPizzas(newQtys);
           console.log('Pizzas after change', Pizzas)    
-          Total_Calculator();
     }
     return (
         <div className="App">
