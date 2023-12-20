@@ -65,7 +65,12 @@ const Home = () => {
           <div key={pizza.id}>
             <section>
               <Card className="photo" style={{ width: "18rem" }}>
-                <Card.Img variant="top"  onClick={goToDetails} src={pizza.img} alt="" />
+                <Card.Img
+                  variant="top"
+                  onClick={goToDetails}
+                  src={pizza.img}
+                  alt=""
+                />
                 <Card.Body>
                   <h3>{pizza.name}</h3>
                   <p> {pizza.price} </p>{" "}
@@ -84,7 +89,7 @@ const Home = () => {
                       Carrito
                     </Button>
 
-                    {/* aquí se podría agregar más info sobre la foto */}
+                    {/* aquí se podría agregar más info sobre la foto si */}
                   </div>
                 </Card.Body>
               </Card>
