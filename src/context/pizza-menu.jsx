@@ -3,10 +3,9 @@ const Pizza_URL = '/pizzas.json';
 
 export const Pizzas_context = createContext();
 
+
 const Pizzas_provider = ({ children}) => {
     const [Pizzas, SetPizzas] = useState([])
-    const [Total_cart, SetTotal_cart] = useState(0)
-
 
     const Pizzas_data = async () => {
         try {
@@ -31,8 +30,9 @@ const Pizzas_provider = ({ children}) => {
         Pizzas_data();
     }, []);
 
+
     return (
-        <Pizzas_context.Provider value={{Pizzas, SetPizzas, Total_cart, SetTotal_cart}}>
+        <Pizzas_context.Provider value={{Pizzas, SetPizzas}}>
             {children}
         </Pizzas_context.Provider>)
 }
