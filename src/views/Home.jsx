@@ -21,10 +21,10 @@ const Home = () => {
   return (
     <div className="App">
       <h1>Pizza Mamma Mia!</h1>
-      <h2>{Total_cart}</h2> {/* aquí esta insertado el total que se calcula con el segundo contexto para ocuparlo en el carrito */}
-      <div className="gallery grid-columns-5 p-3">
+      <h2>Cart Total: {Total_cart}</h2> {/* aquí esta insertado el total que se calcula con el segundo contexto para ocuparlo en el carrito */}
+      <div className="gallery">
         {Pizzas.map((pizza) => (
-          <div key={pizza.id}>
+          <div className="m-2" key={pizza.id}>
             <section>
               <Card className="photo" style={{ width: "18rem" }}>
                 <Card.Img

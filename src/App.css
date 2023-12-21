@@ -21,5 +21,12 @@
 
 .Cart_details{
   background-color: white;
-  
+
+}
+
+.gallery{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
