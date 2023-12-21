@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import { useNavigate, NavLink } from "react-router-dom";
 import Add_button from "../components/AddingButton";
 import Sus_button from "../components/SustractingButton";
+import { NumericFormat } from 'react-number-format';
 
 const Home = () => {
   const { Pizzas, SetPizzas} = useContext(Pizzas_context);
@@ -36,7 +37,9 @@ const Home = () => {
   return (
     <div className="App">
       <h1>Pizza Mamma Mia!</h1>
-      <h2>Cart Total: {Total_cart}</h2> {/* aquí esta insertado el total que se calcula con el segundo contexto para ocuparlo en el carrito */}
+      <h2>
+        Cart Total: <NumericFormat value={Total_cart} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+      </h2> {/* aquí esta insertado el total que se calcula con el segundo contexto para ocuparlo en el carrito */}
       <div className="gallery">
         {Pizzas.map((pizza) => (
           <div className="m-2" key={pizza.id}>
@@ -50,12 +53,14 @@ const Home = () => {
                 />
                 <Card.Body>
                   <h3>{pizza.name}</h3>
-                  <p> {pizza.price} </p>{" "}
+                  <p> Precio: <NumericFormat value={pizza.price} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </p>{" "}
                   <div className="buttons">
                     {pizza.Qty!==0 ? 
                       <div className="d-flex justify-content-around">
                         <Sus_button pizza_id={pizza.id}/>
-                        <h5>{pizza.Qty}</h5>
+                        <h5 className="m-2">
+                          {pizza.Qty}
+                        </h5>
                         <Add_button pizza_id={pizza.id} text={"+"} color={"primary"}/>
                       </div>
                       :
@@ -64,9 +69,9 @@ const Home = () => {
                     <Button variant="primary" onClick={goToDetails}>
                       ver mas
                     </Button>
-                    <Button variant="primary" onClick={goToCart}>
+                    {/*<Button variant="primary" onClick={goToCart}>
                       Carrito
-                    </Button>
+                  </Button>*/}
                   </div>
                 </Card.Body>
               </Card>
