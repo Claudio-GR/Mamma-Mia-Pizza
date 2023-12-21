@@ -1,9 +1,12 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
+import { useContext } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { FaPizzaSlice } from "react-icons/fa";
+import { Cart_total } from "../context/cart";
 
 const Navigation = () => {
+  const {Total_cart, SetTotal_cart} = useContext(Cart_total);
   const activeClass = "navLinkActive";
   const navigate = useNavigate();
   const handleClick = () => {
@@ -22,7 +25,7 @@ const Navigation = () => {
         </div>
         <div>
           <NavLink className={activeClass} to="/carrito">
-            Carrito
+            Carrito: {Total_cart}
           </NavLink>
         </div>
       </section>

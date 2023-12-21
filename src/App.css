@@ -8,3 +8,18 @@
   text-decoration: none;
   font-size: larger;
 }
+
+.Cart_img{
+  width: 40px;
+}
+
+.MyCart{
+  margin: 3rem;
+  padding: 3rem;
+  background-color: lightgray;
+}
+
+.Cart_details{
+  background-color: white;
+  
+}

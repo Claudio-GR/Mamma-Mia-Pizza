@@ -4,41 +4,12 @@ import { Cart_total } from "../context/cart";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate, NavLink } from "react-router-dom";
+import Add_button from "../components/AddingButton";
+import Sus_button from "../components/SustractingButton";
 
 const Home = () => {
   const { Pizzas, SetPizzas} = useContext(Pizzas_context);
   const {Total_cart, SetTotal_cart} = useContext(Cart_total);
-
-  const Add_qty = (id) => {
-    console.log("Pizzas befor change", Pizzas);
-    const newQtys = Pizzas.map((pizza) => {
-      if (pizza.id === id) {
-        return {
-          ...pizza,
-          Qty: pizza.Qty + 1,
-          Total: (pizza.Qty + 1) * pizza.price,
-        };
-      }
-      return pizza;
-    });
-    SetPizzas(newQtys);
-    console.log("Pizzas after change", Pizzas);
-  };
-  const Sus_qty = (id) => {
-    console.log("Pizzas befor change", Pizzas);
-    const newQtys = Pizzas.map((pizza) => {
-      if (pizza.id === id && pizza.Qty !== 0) {
-        return {
-          ...pizza,
-          Qty: pizza.Qty - 1,
-          Total: (pizza.Qty - 1) * pizza.price,
-        };
-      }
-      return pizza;
-    });
-    SetPizzas(newQtys);
-    console.log("Pizzas after change", Pizzas);
-  };
 
   const navigate = useNavigate();
   const goToDetails = () => {
@@ -65,11 +36,10 @@ const Home = () => {
                 <Card.Body>
                   <h3>{pizza.name}</h3>
                   <p> {pizza.price} </p>{" "}
-                  <div>
-                    <button onClick={() => Sus_qty(pizza.id)}>-</button>
-                    <p>{pizza.Qty}</p>
-                    <button onClick={() => Add_qty(pizza.id)}>+</button>
-                    <p>{pizza.Total}</p>
+                  <div className="d-flex justify-content-around">
+                    <Sus_button pizza_id={pizza.id}/>
+                    <h5>{pizza.Qty}</h5>
+                    <Add_button pizza_id={pizza.id}/>
                   </div>
                   <div className="buttons">
                     <Button variant="primary" onClick={goToDetails}>
