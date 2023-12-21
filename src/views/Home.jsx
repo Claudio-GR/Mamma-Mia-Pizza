@@ -11,6 +11,21 @@ const Home = () => {
   const { Pizzas, SetPizzas} = useContext(Pizzas_context);
   const {Total_cart, SetTotal_cart} = useContext(Cart_total);
 
+  const Add_qty = (id) => {
+    console.log("Pizzas befor change", Pizzas);
+    const newQtys = Pizzas.map((pizza) => {
+      if (pizza.id === id) {
+        return {
+          ...pizza,
+          Qty: pizza.Qty + 1,
+          Total: (pizza.Qty + 1) * pizza.price,
+        };
+      }
+      return pizza;
+    });
+    SetPizzas(newQtys);
+    console.log("Pizzas after change", Pizzas);
+  };
   const navigate = useNavigate();
   const goToDetails = () => {
     navigate("/pizza/:id");
@@ -36,12 +51,16 @@ const Home = () => {
                 <Card.Body>
                   <h3>{pizza.name}</h3>
                   <p> {pizza.price} </p>{" "}
-                  <div className="d-flex justify-content-around">
-                    <Sus_button pizza_id={pizza.id}/>
-                    <h5>{pizza.Qty}</h5>
-                    <Add_button pizza_id={pizza.id}/>
-                  </div>
                   <div className="buttons">
+                    {pizza.Qty!==0 ? 
+                      <div className="d-flex justify-content-around">
+                        <Sus_button pizza_id={pizza.id}/>
+                        <h5>{pizza.Qty}</h5>
+                        <Add_button pizza_id={pizza.id} text={"+"} color={"primary"}/>
+                      </div>
+                      :
+                      <Add_button pizza_id={pizza.id} text={"Añadir"} color={"danger"}/>
+                    }
                     <Button variant="primary" onClick={goToDetails}>
                       ver mas
                     </Button>
