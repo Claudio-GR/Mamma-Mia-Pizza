@@ -25,7 +25,6 @@ const Pizzas_provider = ({ children}) => {
          }
      }
 
-
     useEffect(() =>{
         Pizzas_data();
     }, []);
