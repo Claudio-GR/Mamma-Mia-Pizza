@@ -28,7 +28,7 @@ const MyCart = () => {
                     <p>{`$ ${pizza.Total}`}</p>
                     <Sus_button pizza_id={pizza.id}/>
                     <h5>{pizza.Qty}</h5>
-                    <Add_button text={"+"} pizza_id={pizza.id}/>
+                    <Add_button pizza_id={pizza.id} text={"+"} color={"primary"}/>
                   </div>
                 </ListGroup.Item>
               )
