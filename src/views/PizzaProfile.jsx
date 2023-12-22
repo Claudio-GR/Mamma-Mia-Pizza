@@ -1,22 +1,52 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
+import { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
+import { Pizzas_context } from "../context/pizza-menu";
+import { useParams } from 'react-router-dom';
+import Add_button from '../components/AddingButton';
+import Sus_button from '../components/SustractingButton';
 
 const PizzaProfile = () => {
+  const { Pizzas} = useContext(Pizzas_context);
+const {id} = useParams()
+const conFilter = Pizzas.filter((e)=>e.id==id)
+
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <div>
+      { conFilter.map((e)=>(
+      <Card style={{ width: '18rem' }} key={e.id}>
+      <Card.Img variant="top" src={e.img} />
       <Card.Body>
-        <Card.Title>INSERTE NOMBRE DE PIZZA</Card.Title>
+        <Card.Title>{e.name}</Card.Title>
         <hr></hr>
-        <p>AQUI VA LA DESCRIPCCION DE LA PIZZA SELECCIONADA</p> 
-          <p>Ingredientes se traeran como lista </p>
-          <p>Ingresar aca el precio de la pizza</p>
+        <p>{e.desc}</p> 
+          <ul>
+          {e.ingredients.map(ing => <li>{ing}</li>)}
+          </ul>
+          <p>{`$${e.price}`}</p>
        
-        <Button variant="primary">Añadir al carrito</Button>
+        <div className="buttons">
+                    {e.Qty!==0 ? 
+                      <div className="d-flex justify-content-around">
+                        <Sus_button pizza_id={e.id}/>
+                        <h5 className="m-2">
+                          {e.Qty}
+                        </h5>
+                        <Add_button pizza_id={e.id} text={"+"} color={"primary"}/>
+                      </div>
+                      :
+                      <Add_button pizza_id={e.id} text={"Añadir"} color={"danger"}/>
+                    }
+                   
+                  </div>
       </Card.Body>
     </Card>
+        ))
+      }
+   
+    </div>
   )
 }
+
+
 
 export default PizzaProfile

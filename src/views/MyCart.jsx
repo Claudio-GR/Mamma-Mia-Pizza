@@ -25,7 +25,7 @@ const MyCart = () => {
                     <p>{pizza.name}</p>
                   </div>
                   <div className='d-flex justify-content-end'>
-                    <p>{pizza.Total}</p>
+                    <p>{`$ ${pizza.Total}`}</p>
                     <Sus_button pizza_id={pizza.id}/>
                     <h5>{pizza.Qty}</h5>
                     <Add_button pizza_id={pizza.id} text={"+"} color={"primary"}/>
@@ -36,7 +36,7 @@ const MyCart = () => {
           })
           }
         </ListGroup>
-        <h2>Total: {Total_cart}</h2>
+        <h2>Total: {`$${Total_cart}`}</h2>
         <Button variant='success'>Ir a pagar</Button>
       </div>
     </div>

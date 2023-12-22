@@ -28,12 +28,7 @@ const Home = () => {
     console.log("Pizzas after change", Pizzas);
   };
   const navigate = useNavigate();
-  const goToDetails = () => {
-    navigate("/pizza/:id");
-  };
-  const goToCart = () => {
-    navigate("/carrito");
-  };
+
   return (
     <div className="App">
       <h1>Pizza Mamma Mia!</h1>
@@ -47,7 +42,7 @@ const Home = () => {
               <Card className="photo" style={{ width: "18rem" }}>
                 <Card.Img
                   variant="top"
-                  onClick={goToDetails}
+                  onClick={()=>navigate(`/pizza/${pizza.id}`)}
                   src={pizza.img}
                   alt=""
                 />
@@ -66,12 +61,9 @@ const Home = () => {
                       :
                       <Add_button pizza_id={pizza.id} text={"Añadir"} color={"danger"}/>
                     }
-                    <Button variant="primary" onClick={goToDetails}>
+                    <Button variant="primary" onClick={()=>navigate(`/pizza/${pizza.id}`)}>
                       ver mas
                     </Button>
-                    {/*<Button variant="primary" onClick={goToCart}>
-                      Carrito
-                  </Button>*/}
                   </div>
                 </Card.Body>
               </Card>
