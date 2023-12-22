@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import Navigation from './components/Navigation'
 import { Route, Routes } from 'react-router-dom'
@@ -6,6 +5,7 @@ import Home from './views/Home'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PizzaProfile from './views/PizzaProfile'
 import MyCart from './views/MyCart'
+import NotFound from './views/NotFound'
 
 function App() {
 
@@ -22,9 +22,9 @@ function App() {
   <Route path='/carrito'
   element={<MyCart/>}>
   </Route>
-  {/* <Route path='*'
+  <Route path='*'
   element={<NotFound/>}>
-  </Route> */}
+  </Route>
 </Routes>
     </>
   )

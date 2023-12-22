@@ -28,10 +28,7 @@ const Home = () => {
     console.log("Pizzas after change", Pizzas);
   };
   const navigate = useNavigate();
-  
-  const goToCart = () => {
-    navigate("/carrito");
-  };
+
   return (
     <div className="App">
       <h1>Pizza Mamma Mia!</h1>
@@ -67,9 +64,6 @@ const Home = () => {
                     <Button variant="primary" onClick={()=>navigate(`/pizza/${pizza.id}`)}>
                       ver mas
                     </Button>
-                    {/*<Button variant="primary" onClick={goToCart}>
-                      Carrito
-                  </Button>*/}
                   </div>
                 </Card.Body>
               </Card>

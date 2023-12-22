@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import Button from 'react-bootstrap/Button';
 import { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Pizzas_context } from "../context/pizza-menu";
@@ -8,19 +6,12 @@ import Add_button from '../components/AddingButton';
 import Sus_button from '../components/SustractingButton';
 
 const PizzaProfile = () => {
-  const { Pizzas, setPizzas} = useContext(Pizzas_context);
+  const { Pizzas} = useContext(Pizzas_context);
 const {id} = useParams()
 const conFilter = Pizzas.filter((e)=>e.id==id)
 
   return (
     <div>
-
-
-
-
-
-
-
       { conFilter.map((e)=>(
       <Card style={{ width: '18rem' }} key={e.id}>
       <Card.Img variant="top" src={e.img} />
