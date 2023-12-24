@@ -82,6 +82,8 @@ body{
 .landing{
   background-color: red;
   background-image: url('./assets/img/imgHome.jpg');
+  opacity: 0.9;
+  color: black;
   background-size: auto;
   background-position: center 60%;
   height: 150px;

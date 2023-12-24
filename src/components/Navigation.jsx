@@ -24,7 +24,7 @@ const Navigation = () => {
               <img className="navIcon" src={imgPizza} />
             </Navbar.Brand>
             <NavLink style={{textDecoration: 'none'}} className={activeClass} to="/">
-              <span className="spanNavText">Pizzeria mamma mia!</span>
+              <span className="spanNavText">Pizzeria Mamma Mia!</span>
             </NavLink>
           </div>
         </Container>
