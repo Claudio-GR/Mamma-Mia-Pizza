@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Add_button from '../components/AddingButton';
 import Sus_button from '../components/SustractingButton';
 import Container from 'react-bootstrap/Container';
+import { NumericFormat } from 'react-number-format';
 
 const PizzaProfile = () => {
   const { Pizzas} = useContext(Pizzas_context);
@@ -29,7 +30,7 @@ const imgProfile = conFilter.map((e)=>e.img)
               <ul>
               {e.ingredients.map(ing => <li className='spanIngredients'>{ing}</li>)}
               </ul>
-              <p>{`$${e.price}`}</p>
+              <p><NumericFormat value={e.price} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </p>
           
             <div className="buttons">
                         {e.Qty!==0 ? 

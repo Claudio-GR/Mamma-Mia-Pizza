@@ -7,6 +7,7 @@ import Add_button from '../components/AddingButton';
 import Sus_button from '../components/SustractingButton';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useNavigate } from 'react-router-dom';
+import { NumericFormat } from 'react-number-format';
 
 const MyCart = () => {
   const { Pizzas, SetPizzas} = useContext(Pizzas_context);
@@ -27,7 +28,7 @@ const MyCart = () => {
                     <p style={{textTransform: 'capitalize'}} className='pizzaCarrito' onClick={()=>navigate(`/pizza/${pizza.id}`)}>{pizza.name}</p>
                   </div>
                   <div className='d-flex justify-content-end align-items-center'>
-                    <p className='m-3'>{`$ ${pizza.Total}`}</p>
+                    <p className='m-3'><NumericFormat value={pizza.Total} displayType={'text'} thousandSeparator={true} prefix={'$'} /></p>
                     <Sus_button pizza_id={pizza.id}/>
                     <h5 className='ps-3 pe-3'>{pizza.Qty}</h5>
                     <Add_button pizza_id={pizza.id} text={"+"} color={"primary"}/>
@@ -38,7 +39,7 @@ const MyCart = () => {
           })
           }
         </ListGroup>
-        <h2 className='mt-3 ms-3'>Total: {`$${Total_cart}`}</h2>
+        <h2 className='mt-3 ms-3'>Total: <NumericFormat value={Total_cart} displayType={'text'} thousandSeparator={true} prefix={'$'}/></h2>
         <Button variant='success' className='m-3'>Ir a pagar</Button>
       </div>
     </div>

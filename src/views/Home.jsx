@@ -49,6 +49,10 @@ const Home = () => {
                 />
                 <Card.Body>
                   <h3 style={{textTransform: 'capitalize'}}>{pizza.name}</h3>
+                  <p>Ingredientes:</p>
+                  <ul>
+                    {pizza.ingredients.map(ing => <li className='spanIngredients'>{ing}</li>)}
+                  </ul>
                   <p> Precio: <NumericFormat value={pizza.price} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </p>{" "}
                   <div className="buttons">
                     {pizza.Qty!==0 ? 
