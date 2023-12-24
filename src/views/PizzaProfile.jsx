@@ -9,18 +9,21 @@ const PizzaProfile = () => {
   const { Pizzas} = useContext(Pizzas_context);
 const {id} = useParams()
 const conFilter = Pizzas.filter((e)=>e.id==id)
+const imgProfile = conFilter.map((e)=>e.img)
 
   return (
-    <div>
+    <div className='sectionProfile'>
+      <img className='imgProfile' src={imgProfile}/>
+      <div className='fontWeigth'>
       { conFilter.map((e)=>(
       <Card style={{ width: '18rem' }} key={e.id}>
-      <Card.Img variant="top" src={e.img} />
       <Card.Body>
         <Card.Title>{e.name}</Card.Title>
         <hr></hr>
         <p>{e.desc}</p> 
+        <p>Ingredientes:</p>
           <ul>
-          {e.ingredients.map(ing => <li>{ing}</li>)}
+          {e.ingredients.map(ing => <li className='spanIngredients'>{ing}</li>)}
           </ul>
           <p>{`$${e.price}`}</p>
        
@@ -42,6 +45,7 @@ const conFilter = Pizzas.filter((e)=>e.id==id)
     </Card>
         ))
       }
+      </div>
    
     </div>
   )
