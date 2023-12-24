@@ -31,6 +31,7 @@ body{
 }
 .pizzaCarrito{
   font-weight: 600;
+  margin-top: 1rem;
 }
 
 .gallery{
@@ -64,7 +65,9 @@ body{
 }
 .navLinks{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 500px;
+
 }
 .spanCartTotal{
   font-weight: 600;
@@ -107,6 +110,13 @@ body{
   margin: 50px;
   width: fit-content;
 
+}
 
-
+.pizza_profile{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid;
+  border-radius: 2%;
+  border-color: rgba(128, 128, 128, 0.664);
+  padding: 3rem;
 }

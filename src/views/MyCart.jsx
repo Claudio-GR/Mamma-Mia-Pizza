@@ -24,10 +24,10 @@ const MyCart = () => {
                 <ListGroup.Item key={pizza.id} className='d-flex justify-content-between align-items-center'>
                   <div className='d-flex justify-content-start m-1' >
                     <img className='Cart_img d-flex' src={pizza.img} alt="" onClick={()=>navigate(`/pizza/${pizza.id}`)} />
-                    <p className='pizzaCarrito' onClick={()=>navigate(`/pizza/${pizza.id}`)}>{pizza.name}</p>
+                    <p style={{textTransform: 'capitalize'}} className='pizzaCarrito' onClick={()=>navigate(`/pizza/${pizza.id}`)}>{pizza.name}</p>
                   </div>
                   <div className='d-flex justify-content-end align-items-center'>
-                    <p className='ps-3 pe-3'>{`$ ${pizza.Total}`}</p>
+                    <p className='m-3'>{`$ ${pizza.Total}`}</p>
                     <Sus_button pizza_id={pizza.id}/>
                     <h5 className='ps-3 pe-3'>{pizza.Qty}</h5>
                     <Add_button pizza_id={pizza.id} text={"+"} color={"primary"}/>

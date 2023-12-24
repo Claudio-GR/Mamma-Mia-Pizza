@@ -48,7 +48,7 @@ const Home = () => {
                   alt=""
                 />
                 <Card.Body>
-                  <h3>{pizza.name}</h3>
+                  <h3 style={{textTransform: 'capitalize'}}>{pizza.name}</h3>
                   <p> Precio: <NumericFormat value={pizza.price} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </p>{" "}
                   <div className="buttons">
                     {pizza.Qty!==0 ? 
