@@ -1,5 +1,8 @@
+body{
+  background-color: white;
+}
 .navigation {
-  background-color: rgb(50, 136, 151);
+  background-color: rgb(78, 185, 199);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,7 +13,10 @@
 }
 
 .Cart_img{
-  width: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
 .MyCart{
@@ -22,6 +28,9 @@
 .Cart_details{
   background-color: white;
 
+}
+.pizzaCarrito{
+  font-weight: 600;
 }
 
 .gallery{
@@ -48,4 +57,56 @@
 .img-not-found{
   width: 50vw;
   height:50vh;
+}
+.navIcon{
+  width: 25px;
+  height: 25px;
+}
+.navLinks{
+  display: flex;
+  justify-content: center;
+}
+.spanCartTotal{
+  font-weight: 600;
+  color: white;
+  text-decoration: none
+}
+.spanNavText{
+  color: white;
+  text-decoration: none
+}
+.landing{
+  background-color: red;
+  background-image: url('./assets/img/imgHome.jpg');
+  background-size: auto;
+  background-position: center 60%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.spanIngredients{
+  font-weight: 600;
+}
+.imgProfile{
+  height: 400px;
+  width: 400px;
+  border-radius: 10%;
+  margin: 0 50px 0 0;
+}
+.sectionProfile{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+
+}
+.pizzaDetails{
+  margin: 50px;
+  width: fit-content;
+
+
+
 }

@@ -7,6 +7,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import Add_button from "../components/AddingButton";
 import Sus_button from "../components/SustractingButton";
 import { NumericFormat } from 'react-number-format';
+import imgHome from '../assets/img/imgHome.jpg'
 
 const Home = () => {
   const { Pizzas, SetPizzas} = useContext(Pizzas_context);
@@ -31,10 +32,10 @@ const Home = () => {
 
   return (
     <div className="App">
+      <section className="landing">
       <h1>Pizza Mamma Mia!</h1>
-      <h2>
-        Cart Total: <NumericFormat value={Total_cart} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-      </h2> {/* aquí esta insertado el total que se calcula con el segundo contexto para ocuparlo en el carrito */}
+      </section>
+      
       <div className="gallery">
         {Pizzas.map((pizza) => (
           <div className="m-2" key={pizza.id}>
@@ -62,7 +63,7 @@ const Home = () => {
                       <Add_button pizza_id={pizza.id} text={"Añadir"} color={"danger"}/>
                     }
                     <Button variant="primary" onClick={()=>navigate(`/pizza/${pizza.id}`)}>
-                      ver mas
+                      Ver más
                     </Button>
                   </div>
                 </Card.Body>
@@ -71,6 +72,9 @@ const Home = () => {
           </div>
         ))}
       </div>
+      <h2>
+        Total de tu compra: <NumericFormat value={Total_cart} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+      </h2>
     </div>
   );
 };
